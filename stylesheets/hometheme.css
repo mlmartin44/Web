@@ -1,0 +1,105 @@
+
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f7f3ff 0%, #e8e7fa 60%, #cdd9f7 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center the main title both vertically and horizontally */
+main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 40vh;
+    justify-content: center;
+}
+
+/* Large, pastel-gradient title, centered */
+h2 {
+    text-align: center;
+    font-size: 2.7rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    background: linear-gradient(90deg, #b39ddb 40%, #ce93d8 80%, #8ecae6 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    margin: 0 auto 24px auto;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 14px #dbc8fa77;
+    width: 100%;
+}
+
+/* Light frame for your grid container with pastel border */
+#grid-container {
+    max-width: 1000px;
+    margin: 0 auto 36px auto;
+    background: #fff8fd;
+    border-radius: 16px;
+    box-shadow: 0 2px 24px #d1bfff50;
+    padding: 24px 16px 28px 16px;
+    border: 2.5px solid #b39ddb;
+}
+
+/* Pastel table background and rounded corners */
+.gridjs-table {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.09rem;
+    background: #f3f0fa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Headers: pastel lavender with dark purple text */
+.gridjs-th {
+    font-size: 1.09rem !important;
+    font-weight: bold !important;
+    color: #482680 !important;
+    background: #e1bee7 !important;
+    border-bottom: 2px solid #b39ddb !important;
+    letter-spacing: 1px;
+}
+
+/* Row background, pastel and readable */
+.gridjs-td {
+    background: #faf7ff !important;
+    color: #2e2638 !important;
+}
+
+/* Hover: deeper pastel highlight */
+.gridjs-tr:hover .gridjs-td {
+    background: #d1c4e9 !important;
+    transition: background 0.18s;
+}
+
+/* Pagination: pastel buttons */
+.gridjs-pagination .gridjs-pages button {
+    background: #e1bee7 !important;
+    color: #674ea7 !important;
+    border-radius: 7px !important;
+    border: none !important;
+    margin: 0 2px !important;
+    font-weight: 600;
+}
+
+.gridjs-pagination .gridjs-pages button[aria-current="true"] {
+    background: #9575cd !important;
+    color: #fff !important;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 10px;
+    background: #ece7fa;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #b39ddb;
+    border-radius: 10px;
+  }
+  
