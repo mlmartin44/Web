@@ -149,3 +149,13 @@ CSS: Group related rules, comment major sections.
 
 6. License
 This project is licensed under the MIT License.
+
+✨ Enjoy using Mariah’s Movies!
+
+
+**Questions or need help?**  
+Message me or open an issue!
+
+## 🧑‍💻 Author
+Mariah Martin — [@mlmartin44](https://github.com/mlmartin44)
+Email: mlmarti@pointpark.edu
