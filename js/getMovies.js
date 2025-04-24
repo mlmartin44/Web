@@ -3,6 +3,9 @@ const API_URL = "https://movies-api-4s7l.onrender.com/api/v1/movies";
 fetch(API_URL)
   .then(response => response.json())
   .then(data => {
+    // Sort the movies by id (ascending)
+    data.sort((a, b) => a.id - b.id);
+
     const formattedData = data.map(movie => [
       movie.id,
       movie.title,
@@ -27,7 +30,6 @@ fetch(API_URL)
         limit: 10
       },
       resizable: true
-      // Style is handled by your stylesheet!
     }).render(document.getElementById("grid-container"));
   })
   .catch(error => {
