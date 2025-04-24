@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modify Movie | Mariah's Movies</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="./stylesheets/moviestheme.css">
+</head>
+<body>
+<nav class="navbar-custom mb-4">
+    <a href="index.html">Home</a>
+    <a href="addMovies.html">Add Movie</a>
+    <a href="modifyMovies.html">Modify Movie</a>
+</nav>
+
+<div class="container py-5">
+    <h1 class="mb-4" style="font-family: 'Playfair Display', serif;">Modify a Movie</h1>
+    <form id="updateMovieForm">
+        <div class="mb-3">
+            <label for="movieId" class="form-label">Movie ID:</label>
+            <input type="number" id="movieId" name="movieId" class="form-control" placeholder="Enter Movie ID" required>
+            <button type="button" class="btn btn-info mt-2" id="loadMovieBtn">Load Movie</button>
+        </div>
+        <div id="editFields" style="display: none;">
+            <div class="mb-3">
+                <label for="updateTitle" class="form-label">Title:</label>
+                <input type="text" id="updateTitle" name="updateTitle" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="updateYear" class="form-label">Year:</label>
+                <input type="number" id="updateYear" name="updateYear" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="updateGenre" class="form-label">Genre:</label>
+                <select id="updateGenre" name="updateGenre" class="form-control" required>
+                    <option value="">Select genre</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Action">Action</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Musical">Musical</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="updateDirector" class="form-label">Director:</label>
+                <input type="text" id="updateDirector" name="updateDirector" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Movie</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="./js/putMovies.js"></script>
+<script>
+    // Extra JS to load movie info by ID and show the form
+    document.getElementById('loadMovieBtn').addEventListener('click', function() {
+        const movieId = document.getElementById('movieId').value.trim();
+        if (!movieId) {
+            toastr.error('Please enter a Movie ID');
+            return;
+        }
+        fetch(`https://movies-api-4s7l.onrender.com/api/v1/movies/${movieId}`)
+            .then(res => {
+                if (!res.ok) throw new Error('Movie not found');
+                return res.json();
+            })
+            .then(movie => {
+                document.getElementById('editFields').style.display = 'block';
+                document.getElementById('updateTitle').value = movie.title;
+                document.getElementById('updateYear').value = movie.year;
+                document.getElementById('updateGenre').value = movie.genre;
+                document.getElementById('updateDirector').value = movie.director;
+            })
+            .catch(err => {
+                toastr.error('Movie not found. Check the ID.');
+                document.getElementById('editFields').style.display = 'none';
+            });
+    });
+</script>
+</body>
+</html>
