@@ -102,4 +102,35 @@ h2 {
     background: #b39ddb;
     border-radius: 10px;
   }
-  
+
+  .navbar-custom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 18px 0;
+    background: linear-gradient(90deg, #e8e7fa 60%, #cdd9f7 100%);
+    border-bottom: 2px solid #b39ddb;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 16px #b39ddb22;
+    border-radius: 0 0 16px 16px;
+}
+
+.navbar-custom a {
+    text-decoration: none;
+    color: #482680;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.12rem;
+    padding: 6px 16px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.navbar-custom a:hover, .navbar-custom a:focus, .navbar-custom a.active {
+    background: linear-gradient(90deg, #b39ddb 30%, #8ecae6 100%);
+    color: #fff;
+    box-shadow: 0 2px 14px #b39ddb44;
+    text-decoration: none;
+}
+
