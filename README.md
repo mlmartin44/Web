@@ -1,133 +1,151 @@
-# Web
-🎬 Mariah’s Movies — Frontend Guide
-Welcome to Mariah’s Movies, a responsive web application for browsing, adding, and modifying movie records in a database.
+🎬 Mariah’s Movies — Frontend
+A modern web app for browsing, adding, and modifying movies in a PostgreSQL database.
+Built with HTML, CSS (Bootstrap & custom pastel theme), and JavaScript (ES6).
+Connects to a cloud-hosted RESTful API.
 
-🖥️ Live Demo
-Home (View Data): /index.html
+📑 Table of Contents
+Project Overview
 
-Add Movie: /addMovies.html
+Installation & Setup
 
-Modify Movie: /modifyMovies.html
+Usage Instructions
 
-📚 Features
-View all movies in a sortable, searchable table.
+API Integration
 
-Add new movies using a user-friendly form.
+Contributing Guidelines
 
-Modify existing movies via a dropdown selection and auto-filled form.
+License
 
-Toastr notifications for user feedback (success/error messages).
+1. Project Overview
+Mariah’s Movies (Frontend)
+A responsive, user-friendly interface for managing a movie database.
+Goals:
 
-Responsive, pastel-themed UI with modern design.
+View, add, and update movie records easily
 
-🗂️ Navigation
-A navigation bar appears at the top of every page:
+Clean, pastel-themed UI with toast notifications
 
-Home: Returns to the main movies list.
+Works with a remote RESTful API
 
-Add Movie: Go to the movie creation form.
+Key Tech:
 
-Modify Movie: Edit details for existing movies.
+HTML5
 
-👀 Viewing Movies
-Go to the Home page (index.html).
-
-Browse the table of all movies.
-
-Use column headers to sort.
-
-Use the search box (above the table) to filter.
-
-The table displays: ID, Title, Year, Genre, and Director.
-
-➕ Adding a Movie
-Navigate to Add Movie in the navbar.
-
-Fill out the form:
-
-Title — Enter the movie name.
-
-Year — Enter a valid year (e.g., 2022).
-
-Genre — Select a genre from the dropdown.
-
-Director — Enter the director’s name.
-
-Click “Add Movie”.
-
-If successful, you’ll see a purple toast notification:
-
-“New Movie Added to Library!”
-
-The new movie appears on the Home page table.
-
-✏️ Modifying a Movie
-Navigate to Modify Movie.
-
-Select a Movie ID (shows as ID - Title) from the dropdown.
-
-The form will auto-fill with that movie’s details.
-
-Edit any fields as needed (Title, Year, Genre, Director).
-
-Click “Update Movie”.
-
-If successful, you’ll see a purple toast notification:
-
-“Movie updated successfully!”
-
-Return to Home to see the updated info.
-
-✅ User Feedback
-All actions (add/update) provide instant notification via Toastr in a deep purple style, matching the site’s theme.
-
-Error messages are also shown as toast notifications if validation fails or a server error occurs.
-
-💡 Accessibility & Responsiveness
-Forms use proper <label> elements for accessibility.
-
-The UI is styled for both desktop and tablet screens.
-
-Color palette ensures good contrast and readability.
-
-🔗 Technologies Used
-HTML5, CSS3 (custom & Bootstrap 5)
+CSS3 (Bootstrap 5, custom styles)
 
 JavaScript (ES6)
 
 Toastr.js for notifications
 
-Grid.js for the data table
+Grid.js for data tables
 
-Google Fonts (Playfair Display)
+2. Installation & Setup
+Prerequisites:
 
-⚠️ Troubleshooting
-If you don’t see notifications: make sure you have an internet connection (Toastr loads from CDN).
+Node.js & npm (if you want to run a local server for static files)
 
-If the table does not load: check API connectivity.
+Clone & Run:
 
-Always reload after adding or modifying movies to see updates.
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/mariahs-movies-frontend.git
+cd mriahs-movies-frontend
+# If you want local server for static HTML/CSS/JS (optional)
+npm install -g serve
+serve .
+Or, simply open index.html with Live Server (VS Code) or your browser.
 
-🧑‍💻 For Developers
-All JS files are in /js/ (getMovies.js, postMovies.js, putMovies.js)
+3. Usage Instructions
+Navigation:
 
-All CSS is in /stylesheets/moviestheme.css
+Home (index.html): View all movies in a table
 
-Modify page auto-loads movies for editing (no need to manually refresh).
+Add Movie (addMovies.html): Submit new movies to the database
 
-🚀 Quick Start
-Clone or download the repository.
+Modify Movie (modifyMovies.html): Select and update existing movie info
 
-Make sure the backend API is running and accessible.
+How to Use:
 
-Open index.html in your browser (use Live Server or similar for best experience).
+a) View Movies
+Go to Home
 
-✨ Enjoy using Mariah’s Movies!
+Table is sortable, searchable, and paginated
 
+<img src="images/movies-table.png" width="650">
+b) Add a Movie
+Navigate to Add Movie
 
-**Questions or need help?**  
-Message me or open an issue!
+Fill out the form: Title, Year, Genre, Director
 
-## 🧑‍💻 Author
-Mariah Martin — [@mlmartin44](https://github.com/mlmartin44)
-Email: mlmarti@pointpark.edu
+Click "Add Movie"
+
+Success = purple toast “New Movie Added to Library!”
+
+<img src="images/add-movie-form.png" width="430">
+c) Modify a Movie
+Go to Modify Movie
+
+Select an ID from the dropdown (shows “ID - Title”)
+
+Edit any details in the form
+
+Click "Update Movie"
+
+Success = toast “Movie updated successfully!”
+
+<img src="images/modify-movie-form.png" width="430">
+All actions give instant feedback with Toastr notifications.
+
+4. API Integration
+Base URL:
+
+bash
+Copy
+Edit
+https://movies-api-4s7l.onrender.com/api/v1/movies
+Endpoints Used:
+
+GET /api/v1/movies — get all movies
+
+POST /api/v1/movies — add a movie
+
+PUT /api/v1/movies/:id — update a movie
+
+Example:
+
+js
+Copy
+Edit
+fetch("https://movies-api-4s7l.onrender.com/api/v1/movies")
+  .then(res => res.json())
+  .then(data => /* render table */)
+Frontend JS files use fetch() to interact with the API for all CRUD operations.
+
+5. Contributing Guidelines
+Fork this repo, then clone your fork:
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/mariahs-movies-frontend.git
+Create a new branch for your feature or fix:
+
+bash
+Copy
+Edit
+git checkout -b feature/your-feature
+Commit your changes with clear messages.
+
+Push to your fork and open a Pull Request on the main repo.
+
+Coding Standards:
+
+Use consistent indentation (2 or 4 spaces).
+
+JS: Follow ES6+ syntax, use semicolons.
+
+CSS: Group related rules, comment major sections.
+
+6. License
+This project is licensed under the MIT License.
