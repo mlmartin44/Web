@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (!response.ok) {
-                return response.json().then(err => { throw err; });
+                return response.text().then(err => { throw new Error(err); });
             }
-            return response.json();
+            return response.text();  // This is the line you should change!
         })
-        .then(data => {
+        .then(msg => {
             form.reset();
-            toastr.success('Movie updated successfully!');
+            toastr.success(msg || 'Movie updated successfully!');
         })
         .catch(error => {
             toastr.error(error.message || "Unknown error");

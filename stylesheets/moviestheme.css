@@ -6,7 +6,6 @@ body {
     background: linear-gradient(135deg, #f7f3ff 0%, #e8e7fa 60%, #cdd9f7 100%);
 }
 
-
 .container {
     max-width: 600px;
     background: #fff8fd;
@@ -67,16 +66,6 @@ button.btn-primary:hover {
     background-color: #7e57c2;
 }
 
-/* Optional: style for toast notifications (if needed) */
-.toast {
-    background-color: #fff0fb;
-    border: 2px solid #b39ddb;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px #d6c7f5;
-    color: #482680;
-}
-
 /* Scrollbar styling for consistency */
 ::-webkit-scrollbar {
     width: 10px;
@@ -87,6 +76,7 @@ button.btn-primary:hover {
     border-radius: 10px;
 }
 
+/* Navigation bar */
 .navbar-custom {
     width: 100%;
     display: flex;
@@ -117,50 +107,61 @@ button.btn-primary:hover {
     box-shadow: 0 2px 14px #b39ddb44;
     text-decoration: none;
 }
-/* Custom Toastr styling: dark purple theme */
+
+/* =======================
+   Toastr: DARK PURPLE THEME
+   ======================= */
+
 #toast-container > .toast-success,
 #toast-container > .toast-error,
 #toast-container > .toast-info,
 #toast-container > .toast-warning {
-    background-color: #482680 !important;  /* Deep purple */
     color: #fff !important;
     border-radius: 12px !important;
     border: 2px solid #b39ddb !important;
     font-family: 'Playfair Display', serif !important;
-    font-size: 1.1rem;
+    font-size: 1.09rem;
     box-shadow: 0 2px 16px #b39ddb44;
+    opacity: 0.98;
+    padding: 18px 24px !important;
+    min-width: 240px !important;
+    text-shadow: none !important;
 }
 
+/* Success - dark purple to lavender */
 #toast-container > .toast-success {
-    /* Optional: subtle gradient for success */
-    background: linear-gradient(90deg, #482680 90%, #b39ddb 100%) !important;
+    background: linear-gradient(90deg, #482680 80%, #b39ddb 100%) !important;
 }
-
+/* Error - dark purple to pink */
 #toast-container > .toast-error {
-    background: linear-gradient(90deg, #482680 90%, #ce93d8 100%) !important;
+    background: linear-gradient(90deg, #7e57c2 80%, #ce93d8 100%) !important;
 }
-
+/* Info - dark purple to blue */
 #toast-container > .toast-info {
-    background: linear-gradient(90deg, #482680 90%, #8ecae6 100%) !important;
+    background: linear-gradient(90deg, #482680 80%, #8ecae6 100%) !important;
 }
-
+/* Warning - dark purple to orange */
 #toast-container > .toast-warning {
-    background: linear-gradient(90deg, #482680 90%, #ffb74d 100%) !important;
-}
-
-#toast-container > .toast {
-    opacity: 0.96;
-    padding: 18px 22px;
+    background: linear-gradient(90deg, #482680 80%, #ffb74d 100%) !important;
 }
 
 #toast-container .toast-title {
     color: #fff !important;
     font-weight: bold;
-    font-size: 1.15em;
+    font-size: 1.18em;
 }
 
-/* Make close button white */
 #toast-container .toast-close-button {
     color: #fff !important;
-    font-size: 1.1em;
+    font-size: 1.15em !important;
+    opacity: 0.88 !important;
+}
+
+/* Position: top right, add spacing */
+#toast-container {
+    top: 70px !important;
+    right: 30px !important;
+    left: auto !important;
+    padding: 10px;
+    z-index: 99999;
 }

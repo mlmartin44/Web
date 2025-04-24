@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     formEl.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Grab values from the form fields (matching your HTML)
+        // Grab values from the form fields 
         const title = document.getElementById('title').value.trim();
         const year = Number(document.getElementById('year').value.trim());
         const genre = document.getElementById('genre').value;
@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (!response.ok) throw new Error('Failed to add movie');
-            return response.json();
+            return response.text();  // CHANGED from .json() to .text()
         })
-        .then(result => {
-            toastr.success('New Movie Added to Library!');
+        .then(msg => {
+            toastr.success(msg || 'New Movie Added to Library!');
             formEl.reset();
         })
         .catch(error => {
