@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Alert Notification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Playfair Display font, for consistency -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+  <!-- Theme-matched stylesheet -->
+  <link rel="stylesheet" href="./stylesheets/notify.css">
+</head>
+<body>
+  <!-- Optionally, add your navbar here for consistency -->
+  <nav class="navbar-custom mb-4">
+    <a href="index.html">Home</a>
+    <a href="addMovies.html">Add Movie</a>
+    <a href="modifyMovies.html">Modify Movie</a>
+    <a href="notify.html" class="active">Notifications</a>
+  </nav>
+  <div class="container">
+    <h1>Send a Movie Alert</h1>
+    <div class="hint">Create a custom browser notification.<br>
+      <span style="color:#b39ddb;">(Works on most modern browsers. Allow notifications if prompted.)</span>
+    </div>
+    <form id="notifyForm" autocomplete="off">
+      <label for="title" class="form-label">Notification Title:</label>
+      <input type="text" id="title" class="form-control" placeholder="e.g. Assignment Alert" maxlength="50">
+
+      <label for="message" class="form-label">Message:</label>
+      <input type="text" id="message" class="form-control" placeholder="Type your message" maxlength="100" required>
+
+      <label for="icon" class="form-label">Icon URL (optional):</label>
+      <input type="text" id="icon" class="form-control" placeholder="https://example.com/icon.png">
+
+      <button type="submit" class="btn-primary">Send Notification</button>
+    </form>
+    <div class="counter" id="notifyCount">Notifications sent: 0</div>
+  </div>
+  <script src="./js/notify.js"></script>
+</body>
+</html>
